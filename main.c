@@ -24,8 +24,18 @@ void die(const char* log_msg, ...);
 
 
 int main(int argc, char** argv){
+
 	if (argc != 2)
 		die("[USAGE: %s <server ip address>", argv[0]);
+
+	int sockfd, n, sendbytes;
+	struct sockaddr_in servaddr;
+	char sendline[MAXLINE], recvline[MAXLINE];
+
+	if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+		die("ERROR WHILE CREATING SOCKET!");
+
+
 
 	return 0;
 }
